@@ -12,6 +12,8 @@ const {
   Signin
 } = require('./signinModule');
 
+app.use(cors());
+
 const PORT = process.env.PORT || 3002;
 mongoose
   .connect("mongodb+srv://gal:1234@myrestapi.creen.mongodb.net/gal-react-web?retryWrites=true&w=majority", {
@@ -21,12 +23,12 @@ mongoose
   .then(console.log("Connected to mongoDB"))
   .catch((err) => console.log("Error: ", err));
 
-app.use(cors());
+
 app.use(express.json());
 
 
 app.get('/',(req,res)=>{
-  res.send('server is online');
+  res.send('server is online and connect to db');
 })
 
 /// post a massage
